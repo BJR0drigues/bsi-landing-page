@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comentários - BSI IESGO</title>
+    <link rel="stylesheet" href="../css/comments.css">
+    <!-- Adicione aqui qualquer outro CSS compartilhado da página principal -->
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <a href="../index.html">BSI IESGO</a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="../index.html">Início</a></li>
+                    <li><a href="comments.html" class="active">Comentários</a></li>
+                    <li><a href="login.html" id="login-link">Login</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="comments-container">
+            <h2>Comentários da Comunidade</h2>
+            <p class="subtitle">Veja o que os alunos e interessados estão dizendo sobre o curso de BSI da IESGO</p>
+
+            <!-- Seção de novo comentário - visível apenas para usuários logados -->
+            <div class="new-comment" id="new-comment-section">
+                <h3>Deixe seu comentário</h3>
+                <form id="comment-form">
+                    <div class="input-group">
+                        <label for="comment-title">Título</label>
+                        <input type="text" id="comment-title" name="title" placeholder="Título do seu comentário" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="comment-text">Comentário</label>
+                        <textarea id="comment-text" name="comment" placeholder="Escreva seu comentário aqui..." required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Enviar Comentário</button>
+                </form>
+            </div>
+
+            <!-- Mensagem para usuários não logados -->
+            <div class="login-message" id="login-message">
+                <p>Para deixar um comentário, faça <a href="login.html">login</a> ou crie uma conta.</p>
+            </div>
+
+            <!-- Lista de comentários -->
+            <div class="comments-list">
+                <h3>Comentários Recentes</h3>
+                <div id="comments-container">
+                    <div class="comment-loading">Carregando comentários...</div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <p>&copy; 2025 BSI IESGO. Todos os direitos reservados.</p>
+            <div class="social-links">
+                <a href="#" class="social-icon">Facebook</a>
+                <a href="#" class="social-icon">Instagram</a>
+                <a href="#" class="social-icon">LinkedIn</a>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="../js/comments.js"></script>
+</body>
+</html>

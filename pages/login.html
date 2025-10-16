@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - BSI IESGO</title>
+    <link rel="stylesheet" href="../css/login.css">
+    <!-- Adicione aqui qualquer outro CSS compartilhado da página principal -->
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <a href="../index.html">BSI IESGO</a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="../index.html">Início</a></li>
+                    <li><a href="comments.html">Comentários</a></li>
+                    <li><a href="login.html" class="active">Login</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="login-container">
+            <div class="login-card">
+                <h2>Login</h2>
+                <p>Faça login para participar da comunidade BSI IESGO</p>
+                
+                <form id="login-form">
+                    <div class="input-group">
+                        <label for="email">E-mail</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="password">Senha</label>
+                        <input type="password" id="password" name="password" required>
+                    </div>
+                    
+                    <div class="options">
+                        <label>
+                            <input type="checkbox" name="remember"> Lembrar-me
+                        </label>
+                        <a href="#" class="forgot-password">Esqueceu a senha?</a>
+                    </div>
+                    
+                    <button type="submit" class="login-btn">Entrar</button>
+                </form>
+                
+                <div class="register-section">
+                    <h3>Não tem uma conta?</h3>
+                    <p>Registre-se para participar das discussões e compartilhar sua experiência.</p>
+                    <button id="register-btn" class="register-btn">Criar Conta</button>
+                </div>
+            </div>
+            
+            <!-- Modal de Registro -->
+            <div id="register-modal" class="modal">
+                <div class="modal-content">
+                    <span class="close-btn">&times;</span>
+                    <h2>Criar Conta</h2>
+                    
+                    <form id="register-form">
+                        <div class="input-group">
+                            <label for="reg-name">Nome</label>
+                            <input type="text" id="reg-name" name="name" required>
+                        </div>
+                        
+                        <div class="input-group">
+                            <label for="reg-email">E-mail</label>
+                            <input type="email" id="reg-email" name="email" required>
+                        </div>
+                        
+                        <div class="input-group">
+                            <label for="reg-password">Senha</label>
+                            <input type="password" id="reg-password" name="password" required>
+                        </div>
+                        
+                        <div class="input-group">
+                            <label for="reg-password-confirm">Confirmar Senha</label>
+                            <input type="password" id="reg-password-confirm" name="password-confirm" required>
+                        </div>
+                        
+                        <button type="submit" class="register-submit-btn">Criar Conta</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <p>&copy; 2025 BSI IESGO. Todos os direitos reservados.</p>
+            <div class="social-links">
+                <a href="#" class="social-icon">Facebook</a>
+                <a href="#" class="social-icon">Instagram</a>
+                <a href="#" class="social-icon">LinkedIn</a>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="../js/login.js"></script>
+</body>
+</html>
