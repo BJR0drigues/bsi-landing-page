@@ -29,9 +29,19 @@
         <h1>Bacharelado em Sistemas de Informação</h1>
         <p>Transformando conhecimento em soluções tecnológicas</p>
         <div class="hero-buttons">
-            <a href="/bsi-landing-page/pages/matriz-curricular.html" class="btn btn-primary" onclick="window.location.href='/bsi-landing-page/pages/matriz-curricular.html'; return false;">Ver Matriz Curricular</a>
-            <a href="/bsi-landing-page/pages/areas.html" class="btn btn-secondary" onclick="window.location.href='/bsi-landing-page/pages/areas.html'; return false;">Explorar Áreas</a>
+        <button class="btn btn-primary" id="btn-matriz">Ver Matriz Curricular</button>
+        <button class="btn btn-secondary" id="btn-areas">Explorar Áreas</button>
         </div>
+
+        <script>
+        document.getElementById('btn-matriz').addEventListener('click', function() {
+            window.location.href = '/bsi-landing-page/pages/matriz-curricular.html';
+        });
+        
+        document.getElementById('btn-areas').addEventListener('click', function() {
+            window.location.href = '/bsi-landing-page/pages/areas.html';
+        });
+        </script>
       </div>
     </section>
 
