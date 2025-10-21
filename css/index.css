@@ -204,3 +204,21 @@
     grid-template-columns: 1fr;
   }
 }
+
+.btn {
+  display: inline-block;
+  padding: 12px 25px;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s;
+  cursor: pointer; /* Garante que o cursor mude para pointer */
+}
+
+.hero-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  position: relative; /* Garante que não haja problemas de posicionamento */
+  z-index: 10; /* Coloca acima de outros elementos */
+}
