@@ -1,180 +1,90 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BSI - IESGO | Bacharelado em Sistemas de Informação</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ConectaBSI - Bacharelado em Sistemas de Informação</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/index.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js/dist/umd/supabase.min.js"></script>
+  <script src="js/supabase-client.js"></script>
 </head>
 <body>
-    <!-- Partículas de fundo -->
-    <div id="particles-js"></div>
+  <header>
+    <div class="header-container">
+      <div class="logo"><a href="index.html">ConectaBSI</a></div>
+      <nav>
+        <ul>
+          <li><a href="index.html" class="active">Início</a></li>
+          <li><a href="pages/matriz-curricular.html">Matriz Curricular</a></li>
+          <li><a href="pages/areas.html">Áreas de Conhecimento</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
-    <!-- Barra de navegação -->
-    <nav class="navbar">
-        <div class="container">
-            <div class="logo">
-                <span>BSI<span class="highlight">IESGO</span></span>
-            </div>
-            <div class="menu-toggle">
-                <div class="hamburger"></div>
-            </div>
-            <ul class="nav-links">
-                <li><a href="#home">Início</a></li>
-                <li><a href="#about">Sobre o Curso</a></li>
-                <li><a href="#why-bsi">Por que BSI?</a></li>
-                <li><a href="#projects">Projetos</a></li>
-                <li><a href="#team">Equipe</a></li>
-                <li><a href="#faq">FAQ</a></li>
-                <li><a href="#contact" class="cta-button">Contato</a></li>
-                <li><a href="pages/login.html">Login</a></li>
-                <li><a href="pages/comments.html">Comentários</a></li>
-            </ul>
+  <main>
+    <section class="hero">
+      <div class="hero-content">
+        <h1>Bacharelado em Sistemas de Informação</h1>
+        <p>Transformando conhecimento em soluções tecnológicas</p>
+        <div class="hero-buttons">
+          <a href="pages/matriz-curricular.html" class="btn btn-primary">Ver Matriz Curricular</a>
+          <a href="pages/areas.html" class="btn btn-secondary">Explorar Áreas</a>
         </div>
-    </nav>
-
-    <!-- Seção Hero -->
-    <section id="home" class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <h1 class="typing-text">Transforme seu futuro com</h1>
-                <h1 class="highlight">Sistemas de Informação</h1>
-                <p class="subtitle">Desenvolva habilidades para liderar a revolução digital e se destacar no mercado de tecnologia.</p>
-                <div class="cta-buttons">
-                    <a href="#about" class="primary-button">Conheça o Curso</a>
-                    <a href="#contact" class="secondary-button">Entre em Contato</a>
-                </div>
-            </div>
-            <div class="hero-image">
-                <div class="code-animation">
-                    <pre><code>
-function futuro() {
-  const tecnologias = [
-    "IA", "Cloud", 
-    "Desenvolvimento Web",
-    "Mobile", "Dados"
-  ];
-  
-  const voce = new Estudante("BSI");
-  
-  voce.aprenderTecnologias(tecnologias);
-  voce.transformarMercado();
-  
-  return voce.carreira.sucesso;
-}
-// Seu futuro começa aqui
-futuro();
-                    </code></pre>
-                </div>
-            </div>
-        </div>
-        <div class="scroll-indicator">
-            <div class="mouse"></div>
-            <p>Role para descobrir</p>
-        </div>
+      </div>
     </section>
 
-    <!-- Sobre o Curso -->
-    <section id="about" class="about">
-        <div class="container">
-            <div class="section-header" data-aos="fade-up">
-                <h2>Sobre o <span class="highlight">Curso</span></h2>
-                <p>Conheça o Bacharelado em Sistemas de Informação da IESGO</p>
-            </div>
-            
-            <div class="about-grid">
-                <div class="about-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="card-icon">
-                        <i class="fas fa-laptop-code"></i>
-                    </div>
-                    <h3>Formação Completa</h3>
-                    <p>Curso de 4 anos com formação técnica e gerencial em tecnologia da informação.</p>
-                </div>
-                
-                <div class="about-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="card-icon">
-                        <i class="fas fa-users-cog"></i>
-                    </div>
-                    <h3>Professores Especialistas</h3>
-                    <p>Corpo docente com experiência acadêmica e de mercado.</p>
-                </div>
-                
-                <div class="about-card" data-aos="fade-up" data-aos-delay="300">
-                    <div class="card-icon">
-                        <i class="fas fa-project-diagram"></i>
-                    </div>
-                    <h3>Projetos Práticos</h3>
-                    <p>Desenvolva projetos reais com empresas parceiras desde o início do curso.</p>
-                </div>
-                
-                <div class="about-card" data-aos="fade-up" data-aos-delay="400">
-                    <div class="card-icon">
-                        <i class="fas fa-brain"></i>
-                    </div>
-                    <h3>Inovação</h3>
-                    <p>Contato com as mais recentes tecnologias e metodologias do mercado.</p>
-                </div>
-            </div>
-            
-            <div class="curriculum-overview" data-aos="fade-up">
-                <h3>Grade Curricular Destacada</h3>
-                <div class="semester-tabs">
-                    <div class="tab active" data-semester="1">1º Semestre</div>
-                    <div class="tab" data-semester="2">2º Semestre</div>
-                    <div class="tab" data-semester="3">3º Semestre</div>
-                    <div class="tab" data-semester="4">4º Semestre</div>
-                </div>
-                
-                <div class="semester-content active" id="semester-1">
-                    <ul class="subject-list">
-                        <li>Algoritmos e Lógica de Programação</li>
-                        <li>Fundamentos de Sistemas de Informação</li>
-                        <li>Matemática para Computação</li>
-                        <li>Comunicação e Expressão</li>
-                        <li>Introdução à Computação</li>
-                    </ul>
-                </div>
-                
-                <div class="semester-content" id="semester-2">
-                    <ul class="subject-list">
-                        <li>Programação Orientada a Objetos</li>
-                        <li>Estruturas de Dados</li>
-                        <li>Banco de Dados I</li>
-                        <li>Engenharia de Software I</li>
-                        <li>Sistemas Operacionais</li>
-                    </ul>
-                </div>
-                
-                <div class="semester-content" id="semester-3">
-                    <ul class="subject-list">
-                        <li>Desenvolvimento Web</li>
-                        <li>Banco de Dados II</li>
-                        <li>Engenharia de Software II</li>
-                        <li>Redes de Computadores</li>
-                        <li>Estatística e Probabilidade</li>
-                    </ul>
-                </div>
-                
-                <div class="semester-content" id="semester-4">
-                    <ul class="subject-list">
-                        <li>Programação para Dispositivos Móveis</li>
-                        <li>Inteligência Artificial</li>
-                        <li>Segurança da Informação</li>
-                        <li>Gestão de Projetos</li>
-                        <li>Empreendedorismo Digital</li>
-                    </ul>
-                </div>
-            </div>
+    <section class="features">
+      <div class="container">
+        <h2>Por que cursar Sistemas de Informação?</h2>
+        
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon">💻</div>
+            <h3>Formação Completa</h3>
+            <p>Grade curricular atualizada com o mercado de tecnologia e necessidades do setor.</p>
+            <a href="pages/matriz-curricular.html" class="feature-link">Ver disciplinas</a>
+          </div>
+          
+          <div class="feature-card">
+            <div class="feature-icon">📊</div>
+            <h3>Mercado Aquecido</h3>
+            <p>Alta demanda por profissionais qualificados, com diversas possibilidades de atuação.</p>
+          </div>
+          
+          <div class="feature-card">
+            <div class="feature-icon">🚀</div>
+            <h3>Inovação Constante</h3>
+            <p>Desenvolvimento de soluções tecnológicas para os desafios atuais e futuros.</p>
+          </div>
         </div>
+      </div>
     </section>
 
-    <!-- Scripts -->
-    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-    <script src="js/main.js"></script>
-    <script src="js/auth-check.js"></script>
+    <section class="areas-preview">
+      <div class="container">
+        <h2>Áreas de Conhecimento</h2>
+        <p class="subtitle">O curso abrange diversas áreas essenciais para formação completa em TI</p>
+        
+        <div class="areas-grid" id="areas-container">
+          <!-- Áreas serão carregadas via JavaScript -->
+          <div class="area-loading">Carregando áreas de conhecimento...</div>
+        </div>
+        
+        <div class="areas-link">
+          <a href="pages/areas.html" class="btn btn-outline">Ver todas as áreas</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-container">
+      <p>&copy; 2025 ConectaBSI - Bacharelado em Sistemas de Informação</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
 </body>
 </html>
