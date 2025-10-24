@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apresentação — ConectaBSI</title>
+  <link rel="stylesheet" href="/bsi-landing-page/css/style.css">
+  <link rel="stylesheet" href="/bsi-landing-page/css/apresentacao.css">
+</head>
+<body>
+  <header>
+    <div class="header-container">
+      <div class="logo"><a href="/bsi-landing-page/index.html">ConectaBSI</a></div>
+      <nav>
+        <ul>
+          <li><a href="/bsi-landing-page/index.html">Início</a></li>
+          <li><a href="/bsi-landing-page/pages/apresentacao.html" class="active">Apresentação</a></li>
+          <li><a href="/bsi-landing-page/pages/matriz-curricular.html">Matriz Curricular</a></li>
+          <li><a href="/bsi-landing-page/pages/areas.html">Áreas de Conhecimento</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="apresentacao">
+    <section class="apresentacao-hero">
+      <div class="apresentacao-hero__content">
+        <h1>Apresentação do Curso</h1>
+        <p>Explore vídeos sobre o curso de BSI: visão geral, estrutura, depoimentos e infraestrutura.</p>
+      </div>
+    </section>
+
+    <section class="apresentacao-videos">
+      <div class="apresentacao-videos__container">
+        <!-- Player principal -->
+        <div class="video-player" id="video-player" aria-live="polite">
+          <!-- O JS renderiza o player do vídeo principal aqui -->
+        </div>
+
+        <!-- Carrossel de seleção -->
+        <div class="video-carousel" aria-label="Selecionar vídeos">
+          <button class="carousel-nav prev" id="carousel-prev" aria-label="Anterior" title="Anterior">‹</button>
+          <div class="video-carousel__viewport" id="carousel-viewport">
+            <ul class="video-carousel__track" id="carousel-track" role="list">
+              <!-- O JS insere os itens do carrossel aqui -->
+            </ul>
+          </div>
+          <button class="carousel-nav next" id="carousel-next" aria-label="Próximo" title="Próximo">›</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-container">
+      <p>&copy; <span id="year"></span> ConectaBSI - Bacharelado em Sistemas de Informação</p>
+    </div>
+  </footer>
+
+  <script src="/bsi-landing-page/js/apresentacao.js"></script>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
