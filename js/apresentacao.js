@@ -1,4 +1,9 @@
 // Configuração dos vídeos (exemplos). Substitua/adicione conforme necessário.
+// Observações:
+// - Paths absolutos (começando com /bsi-landing-page/...) podem falhar quando a página
+//   for aberta localmente (file://) ou quando o base path do servidor for diferente.
+// - Usamos caminhos relativos e um fallback de thumb para evitar imagens quebradas.
+const defaultThumb = '../fotos/brenao.jfif';
 const VIDEO_ITEMS = [
   {
     id: 'yt-intro',
@@ -6,16 +11,18 @@ const VIDEO_ITEMS = [
     title: 'Visão Geral do BSI',
     desc: 'Panorama do curso, áreas de atuação e estrutura curricular.',
     src: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
-    thumb: '/bsi-landing-page/img/thumbs/yt-intro.jpg'
+    // thumb: use default placeholder (substitua por uma real em ../img/thumbs/...)
+    thumb: defaultThumb
   },
   {
     id: 'local-depo',
     type: 'youtube',
-    title: 'breno.mp4',
+    title: 'Depoimento — Breno',
     desc: 'Falando um pouco sobre o curso de BSI.',
-    src: 'https://youtube.com/shorts/98aN-AAFD6E',
-    poster: '/bsi-landing-page/fotos/brenao.jfif',
-    thumb: '/bsi-landing-page/fotos/brenao.jfif'
+    // para shorts use o formato embed
+    src: 'https://www.youtube.com/embed/98aN-AAFD6E',
+    poster: '../fotos/brenao.jfif',
+    thumb: '../fotos/brenao.jfif'
   },
   {
     id: 'yt-labs',
@@ -23,7 +30,7 @@ const VIDEO_ITEMS = [
     title: 'Estrutura de Laboratórios',
     desc: 'Conheça os espaços e recursos para aulas práticas.',
     src: 'https://www.youtube.com/embed/9bZkp7q19f0',
-    thumb: '/bsi-landing-page/img/thumbs/yt-labs.jpg'
+    thumb: defaultThumb
   },
   {
     id: 'yt-extensao',
@@ -31,7 +38,7 @@ const VIDEO_ITEMS = [
     title: 'Projetos e Extensão',
     desc: 'Iniciativas, eventos e comunidade do curso.',
     src: 'https://www.youtube.com/embed/kXYiU_JCYtU',
-    thumb: '/bsi-landing-page/img/thumbs/yt-extensao.jpg'
+    thumb: defaultThumb
   }
 ];
 
@@ -81,7 +88,7 @@ function renderCarousel(items) {
 
     li.innerHTML = `
       <div class="video-thumb">
-        <img src="${it.thumb}" alt="${it.title}">
+        <img src="${it.thumb || defaultThumb}" alt="${it.title}" onerror="this.onerror=null;this.src='${defaultThumb}';">
       </div>
       <div class="video-meta">
         <h3 class="video-title">${it.title}</h3>
