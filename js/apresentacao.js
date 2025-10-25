@@ -11,11 +11,11 @@ const VIDEO_ITEMS = [
   {
     id: 'local-depo',
     type: 'youtube',
-    title: 'Breno.mp4',
+    title: 'breno.mp4',
     desc: 'Falando um pouco sobre o curso de BSI.',
     src: 'https://youtube.com/shorts/98aN-AAFD6E',
-    poster: '/bsi-landing-page/poster/brenao.jfif',
-    thumb: '/bsi-landing-page/poster/brenao.jfif'
+    poster: '/bsi-landing-page/fotos/brenao.jfif',
+    thumb: '/bsi-landing-page/fotos/brenao.jfif'
   },
   {
     id: 'yt-labs',
