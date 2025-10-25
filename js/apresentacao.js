@@ -10,7 +10,7 @@ const VIDEO_ITEMS = [
   },
   {
     id: 'local-depo',
-    type: 'mp4',
+    type: 'youtube',
     title: 'Breno.mp4',
     desc: 'Falando um pouco sobre o curso de BSI.',
     src: 'https://youtube.com/shorts/98aN-AAFD6E',
