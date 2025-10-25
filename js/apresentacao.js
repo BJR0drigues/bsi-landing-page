@@ -11,11 +11,11 @@ const VIDEO_ITEMS = [
   {
     id: 'local-depo',
     type: 'mp4',
-    title: 'Depoimento de Estudante',
-    desc: 'Relato de experiência e projetos desenvolvidos.',
-    src: '/bsi-landing-page/videos/apresentacao-curso.mp4',
-    poster: '/bsi-landing-page/img/thumbs/local-depo-poster.jpg',
-    thumb: '/bsi-landing-page/img/thumbs/local-depo-thumb.jpg'
+    title: 'Breno.mp4',
+    desc: 'Falando um pouco sobre o curso de BSI.',
+    src: 'https://youtube.com/shorts/98aN-AAFD6E',
+    poster: '/bsi-landing-page/poster/brenao.jfif',
+    thumb: '/bsi-landing-page/poster/brenao.jfif'
   },
   {
     id: 'yt-labs',
