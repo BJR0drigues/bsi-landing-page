@@ -3,16 +3,30 @@
 // - Paths absolutos (começando com /bsi-landing-page/...) podem falhar quando a página
 //   for aberta localmente (file://) ou quando o base path do servidor for diferente.
 // - Usamos caminhos relativos e um fallback de thumb para evitar imagens quebradas.
-const defaultThumb = '../fotos/brenao.jfif';
+// Use a real file that exists in the repo as a default thumbnail
+const defaultThumb = '../fotos/image.png';
+
+// Normalize várias formatos de URL do YouTube para a URL de incorporação usada em iframes.
+function normalizeYouTubeUrl(url) {
+  if (!url || typeof url !== 'string') return url;
+  // Tente extrair um ID de YouTube de 11 caracteres de formatos de URL comuns
+  const m = url.match(/(?:youtu\.be\/|youtube(?:-nocookie)?\.com\/(?:watch\?v=|embed\/|shorts\/))([A-Za-z0-9_-]{11})/);
+  if (m && m[1]) return `https://www.youtube.com/embed/${m[1]}`;
+  // If the URL is in the short youtu.be?vless form or contains v= with extra params, try fallback
+  const q = url.match(/[?&]v=([A-Za-z0-9_-]{11})/);
+  if (q && q[1]) return `https://www.youtube.com/embed/${q[1]}`;
+  // No match: return original URL (may still work)
+  return url;
+}
 const VIDEO_ITEMS = [
   {
     id: 'yt-intro',
     type: 'youtube',
-    title: 'Visão Geral do BSI',
-    desc: 'Panorama do curso, áreas de atuação e estrutura curricular.',
-    src: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
+    title: 'Visão Geral',
+    desc: 'Falando a respeito do curso e site.',
+    src: 'https://youtu.be/pWoFdaQ9VhQ',
     // thumb: use default placeholder (substitua por uma real em ../img/thumbs/...)
-    thumb: defaultThumb
+    thumb:'../fotos/obraya.jfif'
   },
   {
     id: 'local-depo',
@@ -29,7 +43,7 @@ const VIDEO_ITEMS = [
     type: 'youtube',
     title: 'Estrutura de Laboratórios',
     desc: 'Conheça os espaços e recursos para aulas práticas.',
-    src: 'https://www.youtube.com/embed/9bZkp7q19f0',
+    src: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
     thumb: defaultThumb
   },
   {
@@ -37,7 +51,7 @@ const VIDEO_ITEMS = [
     type: 'youtube',
     title: 'Projetos e Extensão',
     desc: 'Iniciativas, eventos e comunidade do curso.',
-    src: 'https://www.youtube.com/embed/kXYiU_JCYtU',
+    src: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
     thumb: defaultThumb
   }
 ];
@@ -55,7 +69,8 @@ function renderPlayer(item) {
   playerEl.innerHTML = '';
   if (item.type === 'youtube') {
     const iframe = document.createElement('iframe');
-    iframe.src = item.src;
+    // normalize to embed URL when possible
+    iframe.src = normalizeYouTubeUrl(item.src);
     iframe.title = item.title;
     iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
     iframe.referrerPolicy = 'strict-origin-when-cross-origin';
