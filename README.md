@@ -89,5 +89,5 @@ O projeto segue um Design System próprio definido em `css/style.css`:
 ## 📝 Créditos
 
 Desenvolvido como parte do projeto de revitalização da identidade visual do curso de BSI.
-**Desenvolvedor:** [Seu Nome/Usuário]
+**Desenvolvedor:** Brayan J. Rodrigues
 **Design:** Baseado em tendências modernas de UI/UX para produtos digitais.
