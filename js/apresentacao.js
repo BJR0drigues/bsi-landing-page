@@ -25,6 +25,14 @@ function normalizeYouTubeUrl(url) {
 
 const VIDEO_ITEMS = [
   {
+    id: 'vid-4',
+    type: 'youtube',
+    title: 'Depoimento - Brayan',
+    desc: 'Depoimentos',
+    src: 'https://youtube.com/shorts/pWoFdaQ9VhQ?feature=share',
+    thumb: defaultThumb
+  },
+  {
     id: 'vid-1',
     type: 'youtube',
     title: 'Depoimento - Italo',
@@ -49,11 +57,11 @@ const VIDEO_ITEMS = [
     thumb: defaultThumb
   },
   {
-    id: 'vid-4',
+    id: 'vid-5',
     type: 'youtube',
-    title: 'Depoimento - Brayan',
+    title: 'Depoimento - Breno',
     desc: 'Depoimentos',
-    src: 'https://youtube.com/shorts/pWoFdaQ9VhQ?feature=share',
+    src: 'https://youtube.com/shorts/98aN-AAFD6E',
     thumb: defaultThumb
   }
 ];
