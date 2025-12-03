@@ -1,5 +1,6 @@
 # ConectaBSI - Redesign da Landing Page do Bacharelado em Sistemas de Informação
 
+![Status](https://img.shields.io/badge/Status-Active-success)
 ![ConectaBSI Hero](/fotos/image.png)
 
 ## 🚀 Sobre o Projeto
