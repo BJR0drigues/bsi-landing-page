@@ -25,6 +25,22 @@ function normalizeYouTubeUrl(url) {
 
 const VIDEO_ITEMS = [
   {
+    id: 'vid-new-1',
+    type: 'youtube',
+    title: 'Depoimento - Dylan',
+    desc: 'Depoimentos',
+    src: 'https://youtube.com/shorts/WZNtmpZ9Zuo?si=H_N78X93iirRHFES',
+    thumb: defaultThumb
+  },
+  {
+    id: 'vid-new-2',
+    type: 'youtube',
+    title: 'Depoimento - Aluno',
+    desc: 'Depoimentos',
+    src: 'https://youtube.com/shorts/5Wis1WSoKU8?si=p6Rh2DBg92DIdOSN',
+    thumb: defaultThumb
+  },
+  {
     id: 'vid-4',
     type: 'youtube',
     title: 'Depoimento - Brayan',
@@ -204,3 +220,52 @@ document.addEventListener('keydown', (e) => {
   renderCarousel(VIDEO_ITEMS);
   updateNavButtons();
 })();
+
+// AI Chat Logic
+const CHAT_DATA = {
+  questions: [
+    { id: 'q1', text: 'Qual a duração do curso?', answer: 'O curso de BSI tem duração de 4 anos (8 semestres).' },
+    { id: 'q2', text: 'Qual o valor da mensalidade?', answer: 'O curso é presencial e oferecido por uma instituição pública, portanto é 100% gratuito!' },
+    { id: 'q3', text: 'Tem estágio obrigatório?', answer: 'Sim, o estágio supervisionado é obrigatório e pode ser realizado a partir do 5º período.' },
+    { id: 'q4', text: 'Quais as áreas de atuação?', answer: 'Você pode atuar como Desenvolvedor, Analista de Dados, Gerente de Projetos, UX Designer, entre outras áreas.' }
+  ]
+};
+
+const chatMessages = document.getElementById('chat-messages');
+const quickQuestions = document.getElementById('quick-questions');
+
+function addMessage(text, type) {
+  const div = document.createElement('div');
+  div.className = `message ${type}`;
+  div.innerHTML = `<p>${text}</p>`;
+  chatMessages.appendChild(div);
+  chatMessages.scrollTop = chatMessages.scrollHeight;
+}
+
+function handleQuestion(qId) {
+  const question = CHAT_DATA.questions.find(q => q.id === qId);
+  if (!question) return;
+
+  // Add user message
+  addMessage(question.text, 'user');
+
+  // Simulate typing delay
+  setTimeout(() => {
+    addMessage(question.answer, 'bot');
+  }, 1000);
+}
+
+function initChat() {
+  if (!quickQuestions) return;
+
+  CHAT_DATA.questions.forEach(q => {
+    const btn = document.createElement('button');
+    btn.className = 'quick-btn';
+    btn.textContent = q.text;
+    btn.onclick = () => handleQuestion(q.id);
+    quickQuestions.appendChild(btn);
+  });
+}
+
+// Initialize Chat
+document.addEventListener('DOMContentLoaded', initChat);
