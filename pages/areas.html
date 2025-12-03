@@ -1,14 +1,21 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Áreas de Conhecimento - ConectaBSI</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Press+Start+2P&display=swap"
+    rel="stylesheet">
+
   <link rel="stylesheet" href="../css/style.css">
   <link rel="stylesheet" href="../css/areas.css">
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js/dist/umd/supabase.min.js"></script>
-  <script src="../js/supabase-client.js"></script>
 </head>
+
 <body>
   <header>
     <div class="header-container">
@@ -16,30 +23,163 @@
       <nav>
         <ul>
           <li><a href="../index.html">Início</a></li>
-          <li><a href="matriz-curricular.html">Matriz Curricular</a></li>
-          <li><a href="areas.html" class="active">Áreas de Conhecimento</a></li>
+          <li><a href="apresentacao.html">O Curso</a></li>
+          <li><a href="matriz-curricular.html">Matriz</a></li>
+          <li><a href="areas.html" class="active">Áreas</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
   <main>
-    <div class="container">
-      <h1>Áreas de Conhecimento</h1>
-      <p class="subtitle">Conheça as principais áreas abordadas no curso de BSI</p>
-
-      <div class="areas-container" id="areas-container">
-        <p class="loading">Carregando áreas de conhecimento...</p>
+    <section class="page-header">
+      <div class="container">
+        <h1>Escolha Sua Classe</h1>
+        <p class="subtitle">No mundo de TI, quem você quer ser? Explore as especializações do BSI.</p>
       </div>
-    </div>
+    </section>
+
+    <section class="rpg-section">
+      <div class="container">
+        <div class="classes-container">
+          <!-- Class Card: Dev -->
+          <div class="class-card" data-class="dev">
+            <div class="card-inner">
+              <div class="card-front">
+                <div class="class-icon">⚔️</div>
+                <h3>Code Warrior</h3>
+                <p class="class-role">Desenvolvedor Full Stack</p>
+              </div>
+              <div class="card-back">
+                <h3>Habilidades</h3>
+                <ul class="stats-list">
+                  <li><span>Lógica</span>
+                    <div class="bar">
+                      <div class="fill" style="width: 90%"></div>
+                    </div>
+                  </li>
+                  <li><span>Criatividade</span>
+                    <div class="bar">
+                      <div class="fill" style="width: 80%"></div>
+                    </div>
+                  </li>
+                  <li><span>Café</span>
+                    <div class="bar">
+                      <div class="fill" style="width: 100%"></div>
+                    </div>
+                  </li>
+                </ul>
+                <p class="class-desc">Mestre das linguagens de programação. Constrói mundos digitais do zero.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Class Card: Data -->
+          <div class="class-card" data-class="data">
+            <div class="card-inner">
+              <div class="card-front">
+                <div class="class-icon">🔮</div>
+                <h3>Data Mage</h3>
+                <p class="class-role">Cientista de Dados</p>
+              </div>
+              <div class="card-back">
+                <h3>Habilidades</h3>
+                <ul class="stats-list">
+                  <li><span>Análise</span>
+                    <div class="bar">
+                      <div class="fill" style="width: 95%"></div>
+                    </div>
+                  </li>
+                  <li><span>Matemática</span>
+                    <div class="bar">
+                      <div class="fill" style="width: 90%"></div>
+                    </div>
+                  </li>
+                  <li><span>Previsão</span>
+                    <div class="bar">
+                      <div class="fill" style="width: 85%"></div>
+                    </div>
+                  </li>
+                </ul>
+                <p class="class-desc">Vê o futuro através dos números. Transforma dados brutos em sabedoria.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Class Card: Security -->
+          <div class="class-card" data-class="sec">
+            <div class="card-inner">
+              <div class="card-front">
+                <div class="class-icon">🛡️</div>
+                <h3>Cyber Guardian</h3>
+                <p class="class-role">Segurança da Informação</p>
+              </div>
+              <div class="card-back">
+                <h3>Habilidades</h3>
+                <ul class="stats-list">
+                  <li><span>Defesa</span>
+                    <div class="bar">
+                      <div class="fill" style="width: 100%"></div>
+                    </div>
+                  </li>
+                  <li><span>Redes</span>
+                    <div class="bar">
+                      <div class="fill" style="width: 90%"></div>
+                    </div>
+                  </li>
+                  <li><span>Ética</span>
+                    <div class="bar">
+                      <div class="fill" style="width: 95%"></div>
+                    </div>
+                  </li>
+                </ul>
+                <p class="class-desc">O escudo contra as trevas digitais. Protege sistemas e dados vitais.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Class Card: AI -->
+          <div class="class-card" data-class="ai">
+            <div class="card-inner">
+              <div class="card-front">
+                <div class="class-icon">🤖</div>
+                <h3>AI Architect</h3>
+                <p class="class-role">Engenheiro de IA</p>
+              </div>
+              <div class="card-back">
+                <h3>Habilidades</h3>
+                <ul class="stats-list">
+                  <li><span>Algoritmos</span>
+                    <div class="bar">
+                      <div class="fill" style="width: 95%"></div>
+                    </div>
+                  </li>
+                  <li><span>Inovação</span>
+                    <div class="bar">
+                      <div class="fill" style="width: 90%"></div>
+                    </div>
+                  </li>
+                  <li><span>Automação</span>
+                    <div class="bar">
+                      <div class="fill" style="width: 85%"></div>
+                    </div>
+                  </li>
+                </ul>
+                <p class="class-desc">Criador de mentes sintéticas. Ensina máquinas a pensar e aprender.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 
   <footer>
     <div class="footer-container">
-      <p>&copy; 2025 ConectaBSI - Bacharelado em Sistemas de Informação</p>
+      <div class="footer-logo">ConectaBSI</div>
+      <p>&copy; 2025 Bacharelado em Sistemas de Informação. Feito para inspirar.</p>
     </div>
   </footer>
-
-  <script src="../js/areas.js"></script>
 </body>
+
 </html>

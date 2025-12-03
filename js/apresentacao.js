@@ -1,57 +1,59 @@
-// Configuração dos vídeos (exemplos). Substitua/adicione conforme necessário.
-// Observações:
-// - Paths absolutos (começando com /bsi-landing-page/...) podem falhar quando a página
-//   for aberta localmente (file://) ou quando o base path do servidor for diferente.
-// - Usamos caminhos relativos e um fallback de thumb para evitar imagens quebradas.
-// Use a real file that exists in the repo as a default thumbnail
+// Configuração dos vídeos
 const defaultThumb = '../fotos/image.png';
 
-// Normalize várias formatos de URL do YouTube para a URL de incorporação usada em iframes.
+// Normalize YouTube URLs to embed format
 function normalizeYouTubeUrl(url) {
   if (!url || typeof url !== 'string') return url;
-  // Tente extrair um ID de YouTube de 11 caracteres de formatos de URL comuns
+
+  let videoId = null;
+  // Extract ID
   const m = url.match(/(?:youtu\.be\/|youtube(?:-nocookie)?\.com\/(?:watch\?v=|embed\/|shorts\/))([A-Za-z0-9_-]{11})/);
-  if (m && m[1]) return `https://www.youtube.com/embed/${m[1]}`;
-  // If the URL is in the short youtu.be?vless form or contains v= with extra params, try fallback
-  const q = url.match(/[?&]v=([A-Za-z0-9_-]{11})/);
-  if (q && q[1]) return `https://www.youtube.com/embed/${q[1]}`;
-  // No match: return original URL (may still work)
+  if (m && m[1]) videoId = m[1];
+
+  if (!videoId) {
+    const q = url.match(/[?&]v=([A-Za-z0-9_-]{11})/);
+    if (q && q[1]) videoId = q[1];
+  }
+
+  if (videoId) {
+    // Use youtube-nocookie to avoid some local playback restrictions
+    return `https://www.youtube-nocookie.com/embed/${videoId}?rel=0`;
+  }
+
   return url;
 }
+
 const VIDEO_ITEMS = [
   {
-    id: 'yt-intro',
+    id: 'vid-1',
     type: 'youtube',
-    title: 'Visão Geral',
-    desc: 'Falando a respeito do curso e site.',
-    src: 'https://youtu.be/pWoFdaQ9VhQ',
-    // thumb: use default placeholder (substitua por uma real em ../img/thumbs/...)
-    thumb:'../fotos/obraya.jfif'
-  },
-  {
-    id: 'local-depo',
-    type: 'youtube',
-    title: 'Depoimento — Breno',
-    desc: 'Falando um pouco sobre o curso de BSI.',
-    // para shorts use o formato embed
-    src: 'https://www.youtube.com/embed/98aN-AAFD6E',
-    poster: '../fotos/brenao.jfif',
-    thumb: '../fotos/brenao.jfif'
-  },
-  {
-    id: 'yt-labs',
-    type: 'youtube',
-    title: 'Estrutura de Laboratórios',
-    desc: 'Conheça os espaços e recursos para aulas práticas.',
-    src: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+    title: 'Depoimento - Italo',
+    desc: 'Depoimentos',
+    src: 'https://youtube.com/shorts/CctSxgm3EkU?si=a-lH9MnSaZP2OSyD',
     thumb: defaultThumb
   },
   {
-    id: 'yt-extensao',
+    id: 'vid-2',
     type: 'youtube',
-    title: 'Projetos e Extensão',
-    desc: 'Iniciativas, eventos e comunidade do curso.',
-    src: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+    title: 'Depoimento - Luis',
+    desc: 'Depoimentos',
+    src: 'https://youtu.be/fnkjI01ZGOY',
+    thumb: defaultThumb
+  },
+  {
+    id: 'vid-3',
+    type: 'youtube',
+    title: 'Depoimento - Caio',
+    desc: 'Depoimentos',
+    src: 'https://youtube.com/shorts/iMn0GCGS8nk?si=U2LYAU-52hkWzcGV',
+    thumb: defaultThumb
+  },
+  {
+    id: 'vid-4',
+    type: 'youtube',
+    title: 'Depoimento - Brayan',
+    desc: 'Depoimentos',
+    src: 'https://youtube.com/shorts/pWoFdaQ9VhQ?feature=share',
     thumb: defaultThumb
   }
 ];
@@ -69,14 +71,14 @@ function renderPlayer(item) {
   playerEl.innerHTML = '';
   if (item.type === 'youtube') {
     const iframe = document.createElement('iframe');
-    // normalize to embed URL when possible
     iframe.src = normalizeYouTubeUrl(item.src);
     iframe.title = item.title;
     iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
-    iframe.referrerPolicy = 'strict-origin-when-cross-origin';
+    // Removed referrerPolicy as it can block local file playback
     iframe.allowFullscreen = true;
     playerEl.appendChild(iframe);
   } else if (item.type === 'mp4') {
+    // ... (mp4 logic)
     const video = document.createElement('video');
     video.controls = true;
     video.preload = 'metadata';
@@ -101,9 +103,12 @@ function renderCarousel(items) {
     const isActive = it.id === currentId;
     if (isActive) li.setAttribute('aria-current', 'true');
 
+    // Use hqdefault for thumbnails as it is safer
+    const thumbUrl = `https://i.ytimg.com/vi/${getYouTubeID(it.src)}/hqdefault.jpg`;
+
     li.innerHTML = `
       <div class="video-thumb">
-        <img src="${it.thumb || defaultThumb}" alt="${it.title}" onerror="this.onerror=null;this.src='${defaultThumb}';">
+        <img src="${thumbUrl}" alt="${it.title}" onerror="this.onerror=null;this.src='${defaultThumb}';">
       </div>
       <div class="video-meta">
         <h3 class="video-title">${it.title}</h3>
@@ -131,6 +136,13 @@ function renderCarousel(items) {
   });
 }
 
+// Helper needed for thumbnail generation in renderCarousel
+function getYouTubeID(url) {
+  if (!url) return '';
+  const m = url.match(/(?:youtu\.be\/|youtube(?:-nocookie)?\.com\/(?:watch\?v=|embed\/|shorts\/))([A-Za-z0-9_-]{11})/);
+  return m ? m[1] : '';
+}
+
 function getActiveIndex() {
   return VIDEO_ITEMS.findIndex(v => v.id === currentId);
 }
@@ -142,7 +154,6 @@ function scrollToIndex(idx) {
 }
 
 function updateNavButtons() {
-  // Navegação infinita não-estrita; mantemos botões sempre habilitados para UX suave.
   prevBtn.disabled = false;
   nextBtn.disabled = false;
 }

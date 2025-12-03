@@ -3,9 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ConectaBSI - Bacharelado em Sistemas de Informação</title>
+  <title>ConectaBSI - O Futuro da Tecnologia Começa Aqui</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/index.css">
+  
+  <!-- Supabase (Keep existing functionality) -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js/dist/umd/supabase.min.js"></script>
   <script src="js/supabase-client.js"></script>
 </head>
@@ -15,87 +23,142 @@
       <div class="logo"><a href="index.html">ConectaBSI</a></div>
       <nav>
         <ul>
-        <li><a href="/bsi-landing-page/index.html" class="active">Início</a></li>
-        <li><a href="/bsi-landing-page/pages/apresentacao.html">Apresentação</a></li>
-        <li><a href="/bsi-landing-page/pages/matriz-curricular.html">Matriz Curricular</a></li>
-        <li><a href="/bsi-landing-page/pages/areas.html">Áreas de Conhecimento</a></li>
+          <li><a href="index.html" class="active">Início</a></li>
+          <li><a href="pages/apresentacao.html">O Curso</a></li>
+          <li><a href="pages/matriz-curricular.html">Matriz</a></li>
+          <li><a href="pages/areas.html">Áreas</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
   <main>
+    <!-- Hero Section -->
     <section class="hero">
-      <div class="hero-content">
-        <h1>Bacharelado em Sistemas de Informação</h1>
-        <p>Transformando conhecimento em soluções tecnológicas</p>
+      <div class="hero-bg"></div>
+      <div class="hero-content container">
+        <span class="hero-badge">Bacharelado em Sistemas de Informação</span>
+        <h1>Crie o Futuro com <span class="text-gradient">Tecnologia</span></h1>
+        <p>Transforme sua paixão por computadores em uma carreira de sucesso. Aprenda a desenvolver softwares, gerenciar dados e liderar a inovação digital.</p>
         <div class="hero-buttons">
-        <button class="btn btn-primary" id="btn-matriz">Ver Matriz Curricular</button>
-        <button class="btn btn-secondary" id="btn-areas">Explorar Áreas</button>
+          <button class="btn btn-primary" id="btn-matriz">Ver Grade Curricular</button>
+          <button class="btn btn-secondary" id="btn-areas">Explorar Áreas</button>
         </div>
-
-        <script>
-        document.getElementById('btn-matriz').addEventListener('click', function() {
-            window.location.href = '/bsi-landing-page/pages/matriz-curricular.html';
-        });
-        
-        document.getElementById('btn-areas').addEventListener('click', function() {
-            window.location.href = '/bsi-landing-page/pages/areas.html';
-        });
-        </script>
       </div>
     </section>
 
+    <!-- Stats Section -->
+    <section class="stats">
+      <div class="container stats-grid">
+        <div class="stat-item">
+          <span class="stat-number">4</span>
+          <span class="stat-label">Anos de Duração</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">90%</span>
+          <span class="stat-label">Empregabilidade</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">5+</span>
+          <span class="stat-label">Áreas de Atuação</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why BSI Section -->
     <section class="features">
       <div class="container">
-        <h2>Por que cursar Sistemas de Informação?</h2>
+        <h2>Por que escolher BSI?</h2>
+        <p class="subtitle">Mais do que programar, você vai aprender a resolver problemas reais do mundo.</p>
         
         <div class="features-grid">
           <div class="feature-card">
             <div class="feature-icon">💻</div>
-            <h3>Formação Completa</h3>
-            <p>Grade curricular atualizada com o mercado de tecnologia e necessidades do setor.</p>
-            <a href="pages/matriz-curricular.html" class="feature-link">Ver disciplinas</a>
+            <h3>Desenvolvimento Full Stack</h3>
+            <p>Aprenda a criar sites, aplicativos e sistemas completos, do banco de dados à interface do usuário.</p>
           </div>
           
           <div class="feature-card">
-            <div class="feature-icon">📊</div>
-            <h3>Mercado Aquecido</h3>
-            <p>Alta demanda por profissionais qualificados, com diversas possibilidades de atuação.</p>
+            <div class="feature-icon">🧠</div>
+            <h3>Inteligência Artificial</h3>
+            <p>Entenda como funcionam as IAs e como aplicar algoritmos inteligentes em seus projetos.</p>
           </div>
           
           <div class="feature-card">
-            <div class="feature-icon">🚀</div>
-            <h3>Inovação Constante</h3>
-            <p>Desenvolvimento de soluções tecnológicas para os desafios atuais e futuros.</p>
+            <div class="feature-icon">💼</div>
+            <h3>Gestão & Negócios</h3>
+            <p>Não é só código. Aprenda a gerenciar projetos, liderar equipes e empreender na área tech.</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">🔒</div>
+            <h3>Segurança Cibernética</h3>
+            <p>Proteja dados e sistemas contra ameaças digitais em um mundo cada vez mais conectado.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="areas-preview">
+    <!-- Career Path Section -->
+    <section class="career-path">
       <div class="container">
-        <h2>Áreas de Conhecimento</h2>
-        <p class="subtitle">O curso abrange diversas áreas essenciais para formação completa em TI</p>
+        <h2>Sua Carreira em Tech</h2>
+        <p class="subtitle">Onde você pode chegar com o diploma de BSI?</p>
         
-        <div class="areas-grid" id="areas-container">
-          <!-- Áreas serão carregadas via JavaScript -->
-          <div class="area-loading">Carregando áreas de conhecimento...</div>
+        <div class="career-grid">
+          <div class="career-card">
+            <div class="career-header">
+              <h3>Dev. de Software</h3>
+              <span class="salary-tag">R$ 5k - 15k+</span>
+            </div>
+            <p>Crie as aplicações que o mundo usa todos os dias.</p>
+          </div>
+          
+          <div class="career-card">
+            <div class="career-header">
+              <h3>Cientista de Dados</h3>
+              <span class="salary-tag">R$ 7k - 20k+</span>
+            </div>
+            <p>Analise dados para descobrir tendências e tomar decisões.</p>
+          </div>
+          
+          <div class="career-card">
+            <div class="career-header">
+              <h3>UX/UI Designer</h3>
+              <span class="salary-tag">R$ 4k - 12k+</span>
+            </div>
+            <p>Projete experiências digitais incríveis e intuitivas.</p>
+          </div>
         </div>
-        
-        <div class="areas-link">
-          <a href="pages/areas.html" class="btn btn-outline">Ver todas as áreas</a>
-        </div>
+      </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="cta">
+      <div class="container cta-content">
+        <h2>Pronto para começar?</h2>
+        <p>O mercado de tecnologia não para de crescer. Garanta seu lugar no futuro.</p>
+        <a href="pages/matriz-curricular.html" class="btn btn-primary btn-lg">Conheça a Grade do Curso</a>
       </div>
     </section>
   </main>
 
   <footer>
     <div class="footer-container">
-      <p>&copy; 2025 ConectaBSI - Bacharelado em Sistemas de Informação</p>
+      <div class="footer-logo">ConectaBSI</div>
+      <p>&copy; 2025 Bacharelado em Sistemas de Informação. Feito para inspirar.</p>
     </div>
   </footer>
 
-  <script src="js/main.js"></script>
+  <script>
+    // Simple navigation logic
+    document.getElementById('btn-matriz').addEventListener('click', function() {
+        window.location.href = 'pages/matriz-curricular.html';
+    });
+    
+    document.getElementById('btn-areas').addEventListener('click', function() {
+        window.location.href = 'pages/areas.html';
+    });
+  </script>
 </body>
 </html>

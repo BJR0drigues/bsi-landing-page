@@ -1,51 +1,93 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Apresentação — ConectaBSI</title>
+  <title>Apresentação - ConectaBSI</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+
   <link rel="stylesheet" href="../css/style.css">
   <link rel="stylesheet" href="../css/apresentacao.css">
 </head>
+
 <body>
   <header>
     <div class="header-container">
-      <div class="logo"><a href="/bsi-landing-page/index.html">ConectaBSI</a></div>
+      <div class="logo"><a href="../index.html">ConectaBSI</a></div>
       <nav>
         <ul>
-          <li><a href="/bsi-landing-page/index.html">Início</a></li>
-          <li><a href="/bsi-landing-page/pages/apresentacao.html" class="active">Apresentação</a></li>
-          <li><a href="/bsi-landing-page/pages/matriz-curricular.html">Matriz Curricular</a></li>
-          <li><a href="/bsi-landing-page/pages/areas.html">Áreas de Conhecimento</a></li>
+          <li><a href="../index.html">Início</a></li>
+          <li><a href="apresentacao.html" class="active">O Curso</a></li>
+          <li><a href="matriz-curricular.html">Matriz</a></li>
+          <li><a href="areas.html">Áreas</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
-  <main class="apresentacao">
-    <section class="apresentacao-hero">
-      <div class="apresentacao-hero__content">
+  <main>
+    <section class="page-header">
+      <div class="container">
         <h1>Apresentação do Curso</h1>
-        <p>Explore vídeos sobre o curso de BSI: visão geral, estrutura, depoimentos e infraestrutura.</p>
+        <p class="subtitle">Conheça o BSI através de quem faz e vive o curso.</p>
       </div>
     </section>
 
-    <section class="apresentacao-videos">
-      <div class="apresentacao-videos__container">
-        <!-- Player principal -->
-        <div class="video-player" id="video-player" aria-live="polite">
-          <!-- O JS renderiza o player do vídeo principal aqui -->
-        </div>
-
-        <!-- Carrossel de seleção -->
-        <div class="video-carousel" aria-label="Selecionar vídeos">
-          <button class="carousel-nav prev" id="carousel-prev" aria-label="Anterior" title="Anterior">‹</button>
-          <div class="video-carousel__viewport" id="carousel-viewport">
-            <ul class="video-carousel__track" id="carousel-track" role="list">
-              <!-- O JS insere os itens do carrossel aqui -->
-            </ul>
+    <section class="video-section">
+      <div class="container">
+        <div class="video-container-wrapper">
+          <!-- Main Player -->
+          <div class="video-player-container">
+            <div class="video-player" id="video-player">
+              <!-- JS injects iframe here -->
+            </div>
           </div>
-          <button class="carousel-nav next" id="carousel-next" aria-label="Próximo" title="Próximo">›</button>
+
+          <!-- Carousel -->
+          <div class="video-carousel-container">
+            <button class="nav-btn prev" id="carousel-prev" aria-label="Anterior">❮</button>
+
+            <div class="carousel-viewport" id="carousel-viewport">
+              <ul class="carousel-track" id="carousel-track">
+                <!-- JS injects thumbnails here -->
+              </ul>
+            </div>
+
+            <button class="nav-btn next" id="carousel-next" aria-label="Próximo">❯</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section">
+      <div class="container">
+        <div class="content-grid">
+          <div class="text-content">
+            <h2>Sobre o Bacharelado</h2>
+            <p>O curso de Sistemas de Informação une a tecnologia com a gestão. Preparamos profissionais para liderar a
+              transformação digital nas empresas.</p>
+
+            <div class="highlight-box">
+              <h3>Destaques</h3>
+              <ul>
+                <li>Infraestrutura moderna de laboratórios</li>
+                <li>Projetos de extensão com a comunidade</li>
+                <li>Corpo docente qualificado</li>
+                <li>Foco em inovação e mercado</li>
+              </ul>
+            </div>
+          </div>
+          <div class="image-content">
+            <!-- Placeholder for static image if needed, or maybe remove if videos are enough -->
+            <div class="image-placeholder">
+              <span>Conheça nossos laboratórios</span>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -53,13 +95,12 @@
 
   <footer>
     <div class="footer-container">
-      <p>&copy; <span id="year"></span> ConectaBSI - Bacharelado em Sistemas de Informação</p>
+      <div class="footer-logo">ConectaBSI</div>
+      <p>&copy; 2025 Bacharelado em Sistemas de Informação. Feito para inspirar.</p>
     </div>
   </footer>
 
   <script src="../js/apresentacao.js"></script>
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
 </body>
+
 </html>

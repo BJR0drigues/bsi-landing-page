@@ -1,14 +1,23 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Matriz Curricular - ConectaBSI</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+
   <link rel="stylesheet" href="../css/style.css">
   <link rel="stylesheet" href="../css/matriz-curricular.css">
+
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js/dist/umd/supabase.min.js"></script>
   <script src="../js/supabase-client.js"></script>
 </head>
+
 <body>
   <header>
     <div class="header-container">
@@ -16,59 +25,65 @@
       <nav>
         <ul>
           <li><a href="../index.html">Início</a></li>
-          <li><a href="matriz-curricular.html" class="active">Matriz Curricular</a></li>
-          <li><a href="areas.html">Áreas de Conhecimento</a></li>
+          <li><a href="apresentacao.html">O Curso</a></li>
+          <li><a href="matriz-curricular.html" class="active">Matriz</a></li>
+          <li><a href="areas.html">Áreas</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
   <main>
-    <div class="container">
-      <h1>Matriz Curricular</h1>
-      <p class="subtitle">Bacharelado em Sistemas de Informação - Matriz 2021/1</p>
+    <section class="page-header">
+      <div class="container">
+        <h1>Matriz Curricular</h1>
+        <p class="subtitle">Conheça as disciplinas que farão parte da sua jornada.</p>
+      </div>
+    </section>
 
-      <div class="filtros">
-        <div class="filtro-grupo">
-          <label for="filtro-periodo">Período:</label>
-          <select id="filtro-periodo">
-            <option value="0">Todos</option>
-            <option value="1">1º Período</option>
-            <option value="2">2º Período</option>
-            <option value="3">3º Período</option>
-            <option value="4">4º Período</option>
-            <option value="5">5º Período</option>
-            <option value="6">6º Período</option>
-            <option value="7">7º Período</option>
-            <option value="8">8º Período</option>
-          </select>
-        </div>
-        
-        <div class="filtro-grupo">
-          <label for="filtro-area">Área:</label>
-          <select id="filtro-area">
-            <option value="0">Todas</option>
-            <!-- Será preenchido via JavaScript -->
-          </select>
+    <section class="matriz-section">
+      <div class="container">
+
+        <div class="controls-container">
+          <div class="search-box">
+            <input type="text" id="busca-disciplina" placeholder="Buscar disciplina (nome, código)...">
+          </div>
+          <div class="filter-box">
+            <select id="filtro-area">
+              <option value="0">Todas as Áreas</option>
+              <!-- Populated by JS -->
+            </select>
+          </div>
         </div>
 
-        <div class="busca">
-          <input type="text" id="busca-disciplina" placeholder="Buscar disciplina...">
+        <div class="filters">
+          <button class="filter-btn active" data-periodo="all">Todos</button>
+          <button class="filter-btn" data-periodo="1">1º</button>
+          <button class="filter-btn" data-periodo="2">2º</button>
+          <button class="filter-btn" data-periodo="3">3º</button>
+          <button class="filter-btn" data-periodo="4">4º</button>
+          <button class="filter-btn" data-periodo="5">5º</button>
+          <button class="filter-btn" data-periodo="6">6º</button>
+          <button class="filter-btn" data-periodo="7">7º</button>
+          <button class="filter-btn" data-periodo="8">8º</button>
+        </div>
+
+        <div class="matriz-grid" id="matriz-container">
+          <!-- Content loaded by JS -->
+          <div class="loading">Carregando matriz curricular...</div>
         </div>
       </div>
-
-      <div class="periodos-container" id="matriz-container">
-        <p class="loading">Carregando disciplinas...</p>
-      </div>
-    </div>
+    </section>
   </main>
 
   <footer>
     <div class="footer-container">
-      <p>&copy; 2025 ConectaBSI - Bacharelado em Sistemas de Informação</p>
+      <div class="footer-logo">ConectaBSI</div>
+      <p>&copy; 2025 Bacharelado em Sistemas de Informação. Feito para inspirar.</p>
     </div>
   </footer>
 
   <script src="../js/matriz-curricular.js"></script>
 </body>
+
 </html>

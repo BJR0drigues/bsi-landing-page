@@ -1,179 +1,166 @@
-/* Estilos para a página de matriz curricular */
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 30px 20px;
-}
-
-h1 {
-  color: #1a3c8a;
-  margin-bottom: 10px;
-  font-size: 2rem;
+.page-header {
+  background: linear-gradient(to bottom, var(--bg-dark), #1e1b4b);
+  padding-top: 120px;
+  padding-bottom: 4rem;
   text-align: center;
 }
 
-.subtitle {
-  color: #555;
-  margin-bottom: 30px;
-  font-size: 1.1rem;
-  text-align: center;
+.page-header h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  background: var(--gradient-main);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-.filtros {
+.matriz-section {
+  padding: 4rem 0;
+}
+
+/* Controls (Search & Select) */
+.controls-container {
   display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
   flex-wrap: wrap;
-  gap: 15px;
-  margin-bottom: 30px;
-  background-color: #f5f5f7;
-  padding: 15px;
+}
+
+.search-box input,
+.filter-box select {
+  background: var(--bg-card);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--text-light);
+  padding: 0.8rem 1.5rem;
+  border-radius: 50px;
+  font-family: var(--font-main);
+  font-size: 1rem;
+  outline: none;
+  min-width: 250px;
+}
+
+.search-box input:focus,
+.filter-box select:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.2);
+}
+
+/* Period Buttons */
+.filters {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 3rem;
+}
+
+.filter-btn {
+  background: var(--bg-card);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--text-gray);
+  padding: 0.5rem 1rem;
   border-radius: 8px;
-  align-items: center;
+  cursor: pointer;
+  transition: var(--transition);
+  font-weight: 600;
+  min-width: 50px;
 }
 
-.filtro-grupo {
-  display: flex;
-  align-items: center;
-}
-
-.filtro-grupo label {
-  margin-right: 8px;
-  font-weight: 500;
-}
-
-.filtro-grupo select {
-  padding: 8px 12px;
-  border-radius: 4px;
-  border: 1px solid #ddd;
-  background-color: white;
-  min-width: 150px;
-}
-
-.busca {
-  flex-grow: 1;
-}
-
-.busca input {
-  width: 100%;
-  padding: 8px 12px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-}
-
-.periodo-section {
-  margin-bottom: 40px;
-}
-
-.periodo-header {
-  background-color: #1a3c8a;
+.filter-btn:hover,
+.filter-btn.active {
+  background: var(--primary-color);
   color: white;
-  padding: 10px 15px;
-  border-radius: 4px;
-  margin-bottom: 15px;
-  display: flex;
-  justify-content: space-between;
+  border-color: var(--primary-color);
+  transform: translateY(-2px);
 }
 
-.disciplinas-grid {
+/* Grid & Cards */
+.matriz-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-  gap: 20px;
+  gap: 2rem;
+}
+
+.periodo-group h3 {
+  color: var(--accent-color);
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 0.5rem;
+  display: flex;
+  align-items: baseline;
 }
 
 .disciplina-card {
-  background-color: white;
-  border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  background: var(--bg-card);
+  padding: 1.5rem;
+  border-radius: 0.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+  transition: var(--transition);
+  position: relative;
   overflow: hidden;
 }
 
-.disciplina-header {
-  padding: 15px;
-  background-color: #f5f5f7;
-  border-bottom: 1px solid #eee;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.disciplina-card:hover {
+  transform: translateX(5px);
+  border-color: var(--primary-color);
+  background: linear-gradient(to right, var(--bg-card), rgba(99, 102, 241, 0.05));
 }
 
-.disciplina-header h3 {
-  margin: 0;
-  font-size: 1.1rem;
-  color: #333;
-}
-
-.carga-horaria {
-  background-color: #1a3c8a;
-  color: white;
-  padding: 3px 8px;
-  border-radius: 12px;
-  font-size: 0.8rem;
-  font-weight: 500;
-}
-
-.disciplina-body {
-  padding: 15px;
-}
-
-.disciplina-desc {
-  margin-bottom: 15px;
-  font-size: 0.9rem;
-  color: #555;
-  line-height: 1.4;
-}
-
-.disciplina-info {
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.85rem;
-  color: #666;
-  margin-bottom: 10px;
-}
-
-.disciplina-professor {
-  margin-top: 10px;
-}
-
-.professor-tag {
-  display: inline-block;
-  background-color: #f0f0f0;
-  padding: 5px 10px;
+.disciplina-card .code {
+  font-family: monospace;
+  color: var(--text-gray);
+  background: rgba(255, 255, 255, 0.05);
+  padding: 0.25rem 0.5rem;
   border-radius: 4px;
   font-size: 0.85rem;
-  color: #555;
-}
-
-.disciplina-requisitos {
-  margin-top: 10px;
-  font-size: 0.85rem;
-  color: #666;
-}
-
-.loading {
+  margin-right: 1.5rem;
+  min-width: 70px;
   text-align: center;
-  padding: 30px;
-  color: #666;
 }
 
+.disciplina-card h4 {
+  flex-grow: 1;
+  color: var(--text-light);
+  font-weight: 500;
+  margin-right: 1rem;
+}
+
+.disciplina-card .hours {
+  color: var(--accent-color);
+  font-weight: 600;
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
+
+.loading,
 .sem-resultado {
   text-align: center;
-  padding: 30px;
-  color: #666;
-  background-color: #f9f9f9;
-  border-radius: 8px;
-  margin: 20px 0;
+  color: var(--text-gray);
+  padding: 2rem;
+  font-size: 1.1rem;
 }
 
 @media (max-width: 768px) {
-  .filtros {
+  .disciplina-card {
     flex-direction: column;
-    align-items: stretch;
+    align-items: flex-start;
+    gap: 0.5rem;
   }
-  
-  .filtro-grupo {
-    width: 100%;
+
+  .disciplina-card .code {
+    margin-right: 0;
+    margin-bottom: 0.5rem;
   }
-  
-  .disciplinas-grid {
-    grid-template-columns: 1fr;
+
+  .disciplina-card h4 {
+    margin-right: 0;
+    margin-bottom: 0.5rem;
+  }
+
+  .controls-container {
+    flex-direction: column;
+    align-items: center;
   }
 }
